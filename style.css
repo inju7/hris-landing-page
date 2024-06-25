@@ -74,6 +74,57 @@ header {
     border-radius: 12px;
 }
 
+<<<<<<< HEAD
+=======
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    padding: 20px;
+}
+
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: relative;
+    color: black;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.header-content button:focus + .popup {
+    display: block;
+}
+
+>>>>>>> 78a57384c44cd49691d1b5226f117b483ada02af
 .header-content button:hover {
     background: #45a049;
 }
@@ -147,3 +198,47 @@ header {
     color: #45a049;
 }
 
+<<<<<<< HEAD
+=======
+.contact {
+    background-color: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin: 2em auto;
+    width: 90%;
+    max-width: 600px;
+}
+.contact h2 {
+    margin-bottom: 1em;
+    color: #333;
+}
+.contact input, .contact textarea {
+    width: calc(50% - 10px);
+    padding: 1em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.contact textarea {
+    width: calc(100% - 16px);
+    height: 100px;
+}
+.contact button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.space{
+    margin-top: 4px;
+}
+>>>>>>> 78a57384c44cd49691d1b5226f117b483ada02af
