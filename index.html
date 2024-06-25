@@ -43,19 +43,20 @@
                     </ul>
                 </div>
                 <div class="contact-form">
-                    <form>
-                        <form id="contactForm">
-                        <input type="text" placeholder="First Name">
-                        <input type="text" placeholder="Last Name">
-                        <input type="email" placeholder="Email" required>
-                        <input type="tel" placeholder="Phone Number">
-                        <textarea placeholder="Message"></textarea>
+                    <form action="" id="contactForm">
+                        <input type="text" id = "first-name" placeholder="First Name">
+                        <input type="text" id = "last-name" placeholder="Last Name">
+                        <input type="email" id = "email" placeholder="Email" required>
+                        <input type="tel" id ="phone-num" placeholder="Phone Number">
+                        <textarea id = "msg-content" placeholder="Message"></textarea>
                         <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>
         </section>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="firebase-config.js"></script>
 </body>
 </html>
 
