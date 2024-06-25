@@ -124,16 +124,7 @@ header {
 
 .contact {
     padding: 2rem;
-    text-align: left;
     margin: 24px 0;
-    background-color: white;
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Adjust this value as needed for desired width */
-    max-width: 800px; /* Increase the max-width for a wider container */
-    margin: 2em auto;
-    overflow: hidden; /* Ensure no overflow within the contact section */
 }
 
 .contact h2 {
