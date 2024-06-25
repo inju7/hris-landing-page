@@ -62,14 +62,14 @@ body {
     display: none;
     position: fixed;
     z-index: 1;
-    left: 0;
-    top: 0;
-    padding-top: 100px;
-    padding-bottom: 200px;
-    padding-left: 575px;
-    padding-right: 1000px;
-    
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    padding: 20px;
 }
+
 
 .popup-content {
     background-color: #fefefe;
@@ -168,7 +168,7 @@ body {
     box-sizing: border-box;
 }
 .contact textarea {
-    width: calc(100% - 22px);
+    width: calc(100% - 16px);
     height: 100px;
 }
 .contact button {
@@ -178,6 +178,11 @@ body {
     border: none;
     cursor: pointer;
     font-size: 1em;
-    margin-top: 1em;
+    margin-top: 2px;
+    margin-bottom: 5px;
     width: 100%;
+}
+
+.space{
+    margin-top: 4px;
 }
