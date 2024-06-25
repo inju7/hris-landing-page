@@ -5,24 +5,40 @@
     font-family: Arial, sans-serif;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-header {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    height: 400px;
+html, body {
+    height: 100%;
+    /*overflow: hidden; Prevent scrolling */
 }
 
 body {
-    background-image: url('background.png'); /* Replace with the path to your background image */
+    background-image: url('/images/background.png'); /* Replace with the path to your background image */
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%; /* Ensure the container takes full height */
+}
+
+header {
+    position: relative;
+    height: 400px;
+}
+
+.navbar {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 50px; /* Adjust the height as needed */
 }
 
 .overlay {
@@ -46,7 +62,7 @@ body {
 
 .header-content button {
     padding: 0.5rem 1rem;
-    font-family: Arial, sans-serif;
+    font-size: 1rem;
     color: white;
     background: #6C63FF;
     border: none;
@@ -58,72 +74,58 @@ body {
     border-radius: 12px;
 }
 
-.popup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    padding-top: 100px;
-    padding-bottom: 200px;
-    padding-left: 575px;
-    padding-right: 1000px;
-    
-}
-
-.popup-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    padding-top: 100px;
-    padding-bottom: 200px;
-    padding-left: 50px;
-    padding-right: 50px;
-    position: relative;
-    color: black;
-}
-
-.close-button {
-    color: #aaa;
-    position: absolute;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    right: 20px;
-    top: 20px;
-    width: 30px;
-    height: 30px;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: black;
-    text-decoration: none;
-}
-
-.header-content button:focus + .popup {
-    display: block;
-}
-
 .header-content button:hover {
     background: #45a049;
 }
 
 .contact {
     padding: 2rem;
-    text-align: left-column;
+    text-align: left;
     margin: 24px 0;
+    background-color: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Adjust this value as needed for desired width */
+    max-width: 800px; /* Increase the max-width for a wider container */
+    margin: 2em auto;
+    overflow: hidden; /* Ensure no overflow within the contact section */
 }
 
 .contact h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #333;
 }
 
 .contact p {
     font-size: 1rem;
     margin-bottom: 1rem;
+}
+
+.contact-form input, .contact-form textarea {
+    width: calc(50% - 10px);
+    padding: 1em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    width: calc(100% - 22px);
+    height: 100px;
+}
+
+.contact-form button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+    width: 100%;
 }
 
 .contact ul {
@@ -145,39 +147,3 @@ body {
     color: #45a049;
 }
 
-.contact {
-    background-color: white;
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    margin: 2em auto;
-    width: 90%;
-    max-width: 600px;
-}
-.contact h2 {
-    margin-bottom: 1em;
-    color: #333;
-}
-.contact input, .contact textarea {
-    width: calc(50% - 10px);
-    padding: 1em;
-    margin: 0.5em 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-.contact textarea {
-    width: calc(100% - 22px);
-    height: 100px;
-}
-.contact button {
-    background-color: #6c63ff;
-    color: white;
-    padding: 0.5em 1em;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    margin-top: 1em;
-    width: 100%;
-}
