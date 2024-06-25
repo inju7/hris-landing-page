@@ -18,13 +18,13 @@
                 <div class="header-content">
                     <h1>Human Resource Information System</h1>
                     <p>Innovative HR Management at Your Fingertips</p>
-                    <button>Upload</button>
-                    <div class="popup">
+                    <button id="uploadButton">Upload</button>
+                    <div class="popup" id="uploadPopup">
                         <div class="popup-content">
-                            <span class="close-button">&times;</span>
+                            <span class="close-button" id="closeButton">&times;</span>
                             <p>Upload your CV/Resume in PDF form</p>
-                            <form action="">
-                                <input type="file" id="myFile" name="filename">
+                            <form id="uploadForm">
+                                <input type="file" id="cvFile" name="filename">
                             </form>
                         </div>
                     </div>
@@ -34,12 +34,12 @@
         <section class="contact">
             <h2>Get in Touch!</h2>
             <div class="contact-form">
-                <form>
-                    <input type="text" placeholder="First Name">
-                    <input type="text" placeholder="Last Name">
-                    <input type="email" placeholder="Email" required>
-                    <input type="tel" placeholder="Phone Number">
-                    <textarea placeholder="Message"></textarea>
+                <form id="contactForm">
+                    <input type="text" id="firstName" placeholder="First Name">
+                    <input type="text" id="lastName" placeholder="Last Name">
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number">
+                    <textarea id="message" placeholder="Message"></textarea>
                     <button type="submit">Submit</button>
                 </form>
             </div>
