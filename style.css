@@ -12,14 +12,20 @@
 
 header {
     position: relative;
-    background-image: url('background.jpg'); /* Replace with the path to your background image */
     background-size: cover;
     background-position: center;
     height: 400px;
 }
 
+body {
+    background-image: url('background.png'); /* Replace with the path to your background image */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .overlay {
-    background: rgba(0, 0, 0, 0.5);
     color: white;
     height: 100%;
     display: flex;
@@ -42,10 +48,14 @@ header {
     padding: 0.5rem 1rem;
     font-family: Arial, sans-serif;
     color: white;
-    background: #4CAF50;
+    background: #6C63FF;
     border: none;
+    border-radius: 15px;
     cursor: pointer;
     transition: background 0.3s;
+    height: 40px;
+    width: 120px;
+    border-radius: 12px;
 }
 
 .popup {
@@ -102,7 +112,8 @@ header {
 
 .contact {
     padding: 2rem;
-    text-align: center;
+    text-align: left-column;
+    margin: 24px 0;
 }
 
 .contact h2 {
@@ -132,4 +143,41 @@ header {
 
 .contact ul li a:hover {
     color: #45a049;
+}
+
+.contact {
+    background-color: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin: 2em auto;
+    width: 90%;
+    max-width: 600px;
+}
+.contact h2 {
+    margin-bottom: 1em;
+    color: #333;
+}
+.contact input, .contact textarea {
+    width: calc(50% - 10px);
+    padding: 1em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.contact textarea {
+    width: calc(100% - 22px);
+    height: 100px;
+}
+.contact button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+    width: 100%;
 }
