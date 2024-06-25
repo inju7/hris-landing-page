@@ -47,7 +47,7 @@ header {
 
 body {
     overflow: hidden; 
-    background-image: url('background.png'); /* Replace with the path to your background image */
+    background-image: url('./images/background.png'); /* Replace with the path to your background image */
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
