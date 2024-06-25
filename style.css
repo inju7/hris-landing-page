@@ -42,10 +42,13 @@ header {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     color: white;
-    background: #4CAF50;
+    background: #6C63FF;
     border: none;
     cursor: pointer;
     transition: background 0.3s;
+    height: 40px;
+    width: 120px;
+    border-radius: 12px;
 }
 
 .header-content button:hover {
