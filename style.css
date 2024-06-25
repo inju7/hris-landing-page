@@ -40,12 +40,60 @@ header {
 
 .header-content button {
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    font-family: Arial, sans-serif;
     color: white;
     background: #4CAF50;
     border: none;
     cursor: pointer;
     transition: background 0.3s;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    padding-left: 575px;
+    padding-right: 1000px;
+    
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: relative;
+    color: black;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.header-content button:focus + .popup {
+    display: block;
 }
 
 .header-content button:hover {
