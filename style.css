@@ -1,3 +1,87 @@
-p {
-    font-size: 30px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    position: relative;
+    background-image: url('background.jpg'); /* Replace with the path to your background image */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.header-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.header-content button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background: #4CAF50;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.header-content button:hover {
+    background: #45a049;
+}
+
+.contact {
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact ul {
+    list-style-type: none;
+}
+
+.contact ul li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact ul li a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact ul li a:hover {
+    color: #45a049;
 }
