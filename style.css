@@ -7,11 +7,10 @@
 
 html, body {
     height: 100%;
-    /*overflow: hidden; Prevent scrolling */
 }
 
 body {
-    background-image: url('/images/background.png'); /* Replace with the path to your background image */
+    background-image: url('/images/background.png');
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -21,7 +20,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    height: 100%; /* Ensure the container takes full height */
+    height: 100%;
 }
 
 header {
@@ -38,7 +37,7 @@ header {
 }
 
 .logo img {
-    height: 50px; /* Adjust the height as needed */
+    height: 50px;
 }
 
 .overlay {
@@ -66,12 +65,11 @@ header {
     color: white;
     background: #6C63FF;
     border: none;
-    border-radius: 15px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background 0.3s;
     height: 40px;
     width: 120px;
-    border-radius: 12px;
 }
 
 .popup {
@@ -85,7 +83,6 @@ header {
     height: auto;
     padding: 20px;
 }
-
 
 .popup-content {
     background-color: #fefefe;
@@ -130,10 +127,10 @@ header {
     padding: 2em;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Adjust this value as needed for desired width */
-    max-width: 800px; /* Increase the max-width for a wider container */
+    width: 90%;
+    max-width: 800px;
     margin: 2em auto;
-    overflow: hidden; /* Ensure no overflow within the contact section */
+    overflow: hidden;
 }
 
 .contact h2 {
@@ -157,7 +154,7 @@ header {
 }
 
 .contact-form textarea {
-    width: calc(100% - 22px);
+    width: calc(100% - 16px);
     height: 100px;
 }
 
@@ -191,44 +188,6 @@ header {
     color: #45a049;
 }
 
-.contact {
-    background-color: white;
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    margin: 2em auto;
-    width: 90%;
-    max-width: 600px;
-}
-.contact h2 {
-    margin-bottom: 1em;
-    color: #333;
-}
-.contact input, .contact textarea {
-    width: calc(50% - 10px);
-    padding: 1em;
-    margin: 0.5em 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-.contact textarea {
-    width: calc(100% - 16px);
-    height: 100px;
-}
-.contact button {
-    background-color: #6c63ff;
-    color: white;
-    width: calc(100% - 16px);
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    margin-top: 2px;
-    margin-bottom: 5px;
-    width: 97%;
-}
-
-.space{
+.space {
     margin-top: 4px;
 }
