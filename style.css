@@ -139,7 +139,7 @@ body {
 }
 
 .header-content button:hover {
-    background: #45a049;
+    background: #4b46b6;
 }
 
 .contact {
@@ -167,13 +167,13 @@ body {
 }
 
 .contact ul li a {
-    color: #4CAF50;
+    color: rgb(79, 78, 78);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .contact ul li a:hover {
-    color: #45a049;
+    color: #4b46b6;
 }
 
 .contact {
