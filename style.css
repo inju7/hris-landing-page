@@ -222,6 +222,10 @@ textarea {
     margin-top: 2px;
     margin-bottom: 5px;
     width: 100%;
+    border-radius: 6px;
+}
+.contact button:hover {
+    background: #4b46b6;
 }
 
 .space {
