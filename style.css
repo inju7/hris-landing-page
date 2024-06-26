@@ -34,14 +34,48 @@
 
 .contact-info {
     flex: 1;
-    padding: 20px;
+    gap: 20px;
+
 }
 
 .contact-form {
     flex: 1;
-    padding: 20px;
-    margin-bottom: 1rem;
+    gap: 20px;
 }
+
+@media (max-width: 500px) {
+    .contact-info, .contact-form {
+      flex: 100%;
+    }
+
+    body {
+        /**overflow: hidden; */
+        background-image: url('./images/background.png'); /* Replace with the path to your background image */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: 'SF Pro Display', sans-serif;
+    }
+
+    .contact-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .contact-info {
+        flex: 50%;
+        gap: 20px;
+    
+    }
+    
+    .contact-form {
+        flex: 50%;
+        gap: 20px;
+    }
+  }
 
 header {
     position: relative;
@@ -228,3 +262,36 @@ textarea {
 .space {
     margin-top: 4px;
 }
+
+@media (max-width: 1000px) {
+    .contact-info, .contact-form {
+      flex: 100%;
+    }
+
+    body {
+        overflow: auto;
+        background-image: url('./images/background.png'); /* Replace with the path to your background image */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: 'SF Pro Display', sans-serif;
+    }
+
+    .contact-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .contact-info {
+        flex: 50%;
+        gap: 20px;
+    
+    }
+    
+    .contact-form {
+        flex: 50%;
+        gap: 20px;
+    }
+  }
