@@ -96,7 +96,7 @@ body {
 
 .overlay {
     color: white;
-    height:70%;
+    height:60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -178,7 +178,7 @@ body {
 }
 
 .contact {
-    padding: 2rem;
+    padding: 2em;
     margin: 24px 0;
 }
 
@@ -218,6 +218,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
     margin: 2em auto;
+    margin-top: -1rem;
     width: 90%;
     max-width: 1200px;
 }
