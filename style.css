@@ -39,6 +39,7 @@
 .contact-form {
     flex: 1;
     padding: 20px;
+    margin-bottom: 1rem;
 }
 
 header {
@@ -191,6 +192,10 @@ body {
     margin-bottom: 1em;
     color: #333;
 }
+
+textarea {
+    resize: none;
+  }
 
 .contact input,
 .contact textarea {
