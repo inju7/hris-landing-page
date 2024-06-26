@@ -227,13 +227,17 @@ textarea {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .header-content h1 {
         font-size: 2rem;
     }
 
     .header-content p {
         font-size: 1rem;
+    }
+
+    body{
+        overflow-y: auto;
     }
 
     .header-content button {
@@ -260,5 +264,19 @@ textarea {
 
     .contact button {
         width: calc(100% - 20px);
+    }
+
+    .header-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .header-content p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .logo img {
+        height: 30px;
     }
 }
