@@ -84,12 +84,11 @@ body {
     color: white;
     background: #6C63FF;
     border: none;
-    border-radius: 15px;
+    border-radius: 12px;
     cursor: pointer;
     transition: background 0.3s;
     height: 40px;
     width: 120px;
-    border-radius: 12px;
 }
 
 .popup {
@@ -205,6 +204,7 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    resize: none;
 }
 
 .contact textarea {
