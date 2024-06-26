@@ -222,9 +222,10 @@ textarea {
     font-size: 1em;
     margin-top: 2px;
     margin-bottom: 5px;
-    width: 100%;
+    width: 445px;
     border-radius: 6px;
 }
+
 .contact button:hover {
     background: #4b46b6;
 }
