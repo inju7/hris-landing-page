@@ -10,6 +10,7 @@ document.getElementById("uploadForm").addEventListener("submit", function(e) {
     }
 
     // File name for storage reference (you can modify this as needed)
+    //rits pogi
     const fileName = `resume_${Date.now()}_${file.name}`;
 
     // Upload file to Firebase Storage
