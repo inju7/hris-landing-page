@@ -46,7 +46,7 @@ header {
     position: relative;
     background-size: cover;
     background-position: center;
-    height: 400px;
+    height: 350px;
 }
 
 body {
@@ -61,7 +61,7 @@ body {
 
 .overlay {
     color: white;
-    height: 100%;
+    height:70%;
     display: flex;
     align-items: center;
     justify-content: center;
