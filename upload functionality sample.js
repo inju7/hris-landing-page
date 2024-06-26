@@ -24,7 +24,3 @@ document.getElementById("uploadForm").addEventListener("submit", function(e) {
     });
 });
 
-// Function to get element value by ID
-const getElementVal = (id) => {
-    return document.getElementById(id).value;
-};
