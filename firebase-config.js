@@ -1,20 +1,9 @@
+import { createClient } from '@supabase/supabase-js'
+
 document.addEventListener('DOMContentLoaded', function() {
-    const firebaseConfig = {
-        apiKey: "AIzaSyA4sqd8UhW1-rYHuDr7zTcZeoulBapf50c",
-        authDomain: "hris-landing-page-2283a.firebaseapp.com",
-        databaseURL: "https://hris-landing-page-2283a-default-rtdb.firebaseio.com",
-        projectId: "hris-landing-page-2283a",
-        storageBucket: "hris-landing-page-2283a.appspot.com",
-        messagingSenderId: "533745622982",
-        appId: "1:533745622982:web:50ec3c7580375c37aa1cc7",
-        measurementId: "G-HQGN8M98Z5"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    // Database reference
-    const contactFormDB = firebase.database().ref('contactForm');
+    const supabaseUrl = 'https://zjimnxnzjzcdsnmqmqeg.supabase.co'
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqaW1ueG56anpjZHNubXFtcWVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk0NTU4MTYsImV4cCI6MjAzNTAzMTgxNn0.fqRCjCd9q03Qorbyxxm1aA2eXw0ucKFvGT0Nt84WgWA'
+    const supabase = createClient(supabaseUrl, supabaseKey)
 
     // Event listener for file upload button
     const uploadButton = document.getElementById("uploadButton");
@@ -33,31 +22,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Function to handle file upload
-    const uploadFile = (file) => {
-        // Initialize Firebase Storage
-        const storageRef = firebase.storage().ref();
-        const fileName = `resume_${Date.now()}_${file.name}`;
-        const fileRef = storageRef.child(`resumes/${fileName}`);
+    const uploadFile = async (file) => {
+        try {
+            const fileName = `resume_${Date.now()}_${file.name}`;
+            const { data, error } = await supabase.storage
+                .from('resumes')
+                .upload(`resumes/${fileName}`, file);
 
-        // Upload file to Firebase Storage
-        fileRef.put(file).then((snapshot) => {
-            console.log('Uploaded a file:', snapshot.metadata.name);
-            alert('File uploaded successfully.'); // Optional: Show a success message
+            if (error) throw error;
 
-            // Get download URL for the uploaded file
-            fileRef.getDownloadURL().then((fileUrl) => {
-                console.log('File URL:', fileUrl);
-            }).catch((error) => {
-                console.error('Error getting file download URL:', error);
-            });
-        }).catch((error) => {
+            console.log('Uploaded a file:', data.path);
+            alert('File uploaded successfully.');
+
+            // Get public URL for the uploaded file
+            const { data: publicUrlData } = supabase.storage
+                .from('resumes')
+                .getPublicUrl(`resumes/${fileName}`);
+
+            console.log('File URL:', publicUrlData.publicUrl);
+        } catch (error) {
             console.error('Error uploading file:', error);
-            alert('An error occurred while uploading. Please try again.'); // Optional: Show an error message
-        });
+            alert('An error occurred while uploading. Please try again.');
+        }
     };
 
     // Function to handle form submission
-    function submitForm(e) {
+    async function submitForm(e) {
         e.preventDefault();
 
         // Get form values
@@ -69,26 +59,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
         console.log(firstName, lastName, email, phoneNum, msgContent);
 
-        // Save messages to Firebase
-        saveMessages(firstName, lastName, email, phoneNum, msgContent);
+        // Save messages to Supabase
+        await saveMessages(firstName, lastName, email, phoneNum, msgContent);
     }
 
-    // Function to save messages to Firebase Realtime Database
-    const saveMessages = (firstName, lastName, email, phoneNum, msgContent) => {
-        contactFormDB.push({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            phoneNum: phoneNum,
-            msgContent: msgContent
-        }).then(() => {
+    // Function to save messages to Supabase
+    const saveMessages = async (firstName, lastName, email, phoneNum, msgContent) => {
+        try {
+            const { data, error } = await supabase
+                .from('contact_form')
+                .insert([
+                    { 
+                        first_name: firstName,
+                        last_name: lastName,
+                        email: email,
+                        phone_num: phoneNum,
+                        msg_content: msgContent
+                    }
+                ]);
+
+            if (error) throw error;
+
             console.log('Form data saved successfully!');
-            alert('Form submitted successfully.'); // Optional: Show a success message
-            document.getElementById("contactForm").reset(); // Reset the form after submission
-        }).catch((error) => {
+            alert('Form submitted successfully.');
+            document.getElementById("contactForm").reset();
+        } catch (error) {
             console.error('Error saving form data:', error);
-            alert('An error occurred. Please try again.'); // Optional: Show an error message
-        });
+            alert('An error occurred. Please try again.');
+        }
     };
 
     // Function to get element value by ID
