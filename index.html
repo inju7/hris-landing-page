@@ -64,8 +64,46 @@
         </section>
     </div>
 
-    <script type="module">
-        // Your existing JavaScript code here
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadButton = document.getElementById('uploadButton');
+            const uploadPopup = document.getElementById('uploadPopup');
+            const closeButton = document.getElementById('closeButton');
+            const uploadForm = document.getElementById('uploadForm');
+
+            uploadButton.addEventListener('click', function(event) {
+                event.stopPropagation();
+                uploadPopup.style.display = 'block';
+            });
+
+            closeButton.addEventListener('click', function() {
+                uploadPopup.style.display = 'none';
+            });
+
+            uploadPopup.addEventListener('click', function(event) {
+                if (event.target === uploadPopup) {
+                    uploadPopup.style.display = 'none';
+                }
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!uploadPopup.contains(event.target) && event.target !== uploadButton) {
+                    uploadPopup.style.display = 'none';
+                }
+            });
+
+            uploadForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const fileInput = document.getElementById('cvFile');
+                if (fileInput.files.length > 0) {
+                    console.log('File selected:', fileInput.files[0].name);
+                    alert('File submitted successfully!');
+                    uploadPopup.style.display = 'none';
+                } else {
+                    alert('Please select a file before submitting.');
+                }
+            });
+        });
     </script>
 </body>
 </html>
