@@ -197,38 +197,93 @@ body {
     cursor: pointer;
     transition: background 0.3s;
 }
+.contact {
+    padding: 2em;
+    margin: 24px 0;
+}
 
-.contact-info h2 {
+.contact h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.contact-info p {
+.contact p {
     font-size: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
-.contact-info ul {
-    list-style: none;
-    padding: 0;
+.contact ul {
+    list-style-type: none;
 }
 
-.contact-info li {
+.contact ul li {
+    font-size: 1rem;
     margin-bottom: 0.5rem;
 }
 
-.contact-info a {
+.contact ul li a {
+    color: rgb(79, 78, 78);
     text-decoration: none;
-    color: #6C63FF;
+    transition: color 0.3s;
 }
 
-.contact-info a:hover {
-    text-decoration: underline;
+.contact ul li a:hover {
+    color: #4b46b6;
 }
 
-.contact-form form {
-    display: flex;
-    flex-direction: column;
+
+.contact {
+    background-color: white;
+    padding: 2em;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin: 2em auto;
+    margin-top: -1rem;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.contact h2 {
+    margin-bottom: 1em;
+    color: #333;
+}
+
+textarea {
+    resize: none;
+}
+
+.contact input,
+.contact textarea {
+    width: calc(50% - 10px);
+    padding: 1em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.contact textarea {
+    width: calc(100% - 16px);
+    height: 100px;
+}
+
+.contact button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+.space {
+    margin-top: 4px;
 }
 
 .contact-form input,
