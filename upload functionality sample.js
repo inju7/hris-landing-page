@@ -9,19 +9,19 @@ document.getElementById("uploadForm").addEventListener("submit", function(e) {
         return;
     }
 
-    // File name for storage reference (you can modify this as needed)
-    
-    const fileName = `resume_${Date.now()}_${file.name}`;
-
     // Upload file to Firebase Storage
     const fileRef = storageRef.child('resumes/' + fileName);
     fileRef.put(file).then((snapshot) => {
         console.log('Uploaded a file:', snapshot.metadata.name);
-        alert('Resume uploaded successfully.'); // Optional: Show a success message
-        document.getElementById("uploadForm").reset(); // Reset the upload form
+        alert('Resume uploaded successfully.');
+        // Only proceed with database upload if the form is submitted
+        if (e.type === 'submit') {
+            // Add code to upload file to the database here
+            // For example:
+            // db.collection('resumes').add(snapshot.metadata.name);
+        }
     }).catch((error) => {
         console.error('Error uploading file:', error);
-        alert('An error occurred while uploading. Please try again.'); // Optional: Show an error message
+        alert('An error occurred while uploading. Please try again.');
     });
 });
-
