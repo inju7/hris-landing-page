@@ -21,10 +21,8 @@ document.getElementById("uploadForm").addEventListener("submit", function(e) {
             // db.collection('resumes').add(snapshot.metadata.name);
 
 // Assuming that the file upload function is already defined and tested
-
 // Inside the file upload function, after the successful upload to Firebase Storage,
 // you can add the following code to store the uploaded file into Firebase Storage:
-
 // Add this code after the successful upload to Firebase Storage:
 
 if (e.type === 'submit') {
