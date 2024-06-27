@@ -69,6 +69,101 @@
             </div>
         </section>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadButton = document.getElementById('uploadButton');
+            const uploadPopup = document.getElementById('uploadPopup');
+            const closeButton = document.getElementById('closeButton');
+            const fileInput = document.getElementById('fileInput');
+            const fileList = document.getElementById('fileList');
+            const uploadBtn = document.getElementById('uploadBtn');
+            let selectedFiles = [];
+
+            uploadButton.addEventListener('click', function(event) {
+                event.stopPropagation();
+                uploadPopup.style.display = 'flex';
+            });
+
+            closeButton.addEventListener('click', function() {
+                uploadPopup.style.display = 'none';
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target === uploadPopup) {
+                    uploadPopup.style.display = 'none';
+                }
+            });
+
+            fileInput.addEventListener('change', function(event) {
+                for (let file of event.target.files) {
+                    selectedFiles.push(file);
+                }
+                displaySelectedFiles();
+            });
+
+            function displaySelectedFiles() {
+                fileList.innerHTML = '';
+                selectedFiles.forEach((file, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<span>${getFileIcon(file)} ${file.name}</span> <button class="remove-btn" data-index="${index}" style="background:white"><i class="fas fa-trash-alt" style="color: red;"></i></button>`;
+                    fileList.appendChild(li);
+                });
+
+                document.querySelectorAll('.remove-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = this.getAttribute('data-index');
+                        selectedFiles.splice(index, 1);
+                        displaySelectedFiles();
+                    });
+                });
+            }
+
+            function getFileIcon(file) {
+                const fileType = file.type;
+                if (fileType.startsWith('image/')) {
+                    return '<i class="fas fa-file-image file-icon"></i>';
+                } else if (fileType.startsWith('video/')) {
+                    return '<i class="fas fa-file-video file-icon"></i>';
+                } else if (fileType.startsWith('audio/')) {
+                    return '<i class="fas fa-file-audio file-icon"></i>';
+                } else if (fileType === 'application/pdf') {
+                    return '<i class="fas fa-file-pdf file-icon"></i>';
+                } else if (fileType === 'application/msword' || fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+                    return '<i class="fas fa-file-word file-icon"></i>';
+                } else if (fileType === 'application/vnd.ms-excel' || fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+                    return '<i class="fas fa-file-excel file-icon"></i>';
+                } else {
+                    return '<i class="fas fa-file file-icon"></i>';
+                }
+            }
+
+            uploadBtn.addEventListener('click', function() {
+                if (selectedFiles.length === 0) {
+                    alert("Please select files to upload.");
+                    return;
+                }
+
+                alert(`${selectedFiles.length} file(s) uploaded successfully.`);
+                selectedFiles = [];
+                fileInput.value = "";
+                fileList.innerHTML = "";
+                uploadPopup.style.display = 'none';
+            });
+    uploadForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const fileInput = document.getElementById('cvFile');
+        if (fileInput.files.length > 0) {
+            // Here you would typically send the file to your server or process it
+            console.log('File selected:', fileInput.files[0].name);
+            // You can add your file upload logic here
+            alert('File submitted successfully!');
+            uploadPopup.style.display = 'none';
+        } else {
+            alert('Please select a file before submitting.');
+        }
+    });
+});
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1/firebase.js"></script>
     <script src="firebase-config.js"></script>
     <script>
