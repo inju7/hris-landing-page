@@ -22,39 +22,26 @@ document.addEventListener('DOMContentLoaded', function() {
         uploadButton.addEventListener("click", function() {
             const file = document.getElementById('cvFile').files[0];
 
-            if (file) {
-                uploadFile(file);
-            } else {
-                alert('Please select a PDF file to upload.');
-            }
-        });
-    } else {
-        console.error('Upload button not found');
-    }
+            // Function to handle file upload
+            document.getElementById("uploadForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+                const fileInput = document.getElementById('cvFile');
+                const file = fileInput.files[0];
 
-    // Function to handle file upload
-    const uploadFile = (file) => {
-        // Initialize Firebase Storage
-        const storageRef = firebase.storage().ref();
-        const fileName = `resume_${Date.now()}_${file.name}`;
-        const fileRef = storageRef.child(`resumes/${fileName}`);
-
-        // Upload file to Firebase Storage
-        fileRef.put(file).then((snapshot) => {
-            console.log('Uploaded a file:', snapshot.metadata.name);
-            alert('File uploaded successfully.'); // Optional: Show a success message
-
-            // Get download URL for the uploaded file
-            fileRef.getDownloadURL().then((fileUrl) => {
-                console.log('File URL:', fileUrl);
-            }).catch((error) => {
-                console.error('Error getting file download URL:', error);
+                // Upload file to Firebase Storage
+                const storageRef = firebase.storage().ref();
+                const fileName = file.name;
+                const fileRef = storageRef.child('resumes/' + fileName);
+                fileRef.put(file).then((snapshot) => {
+                    console.log('Uploaded a file:', snapshot.metadata.name);
+                    alert('Resume uploaded successfully.');
+                }).catch((error) => {
+                    console.error('Error uploading file:', error);
+                    alert('An error occurred while uploading. Please try again.');
+                });
             });
-        }).catch((error) => {
-            console.error('Error uploading file:', error);
-            alert('An error occurred while uploading. Please try again.'); // Optional: Show an error message
         });
-    };
+    }
 
     // Function to handle form submission
     function submitForm(e) {
