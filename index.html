@@ -21,13 +21,14 @@
                     <h1>Human Resource Information System</h1>
                     <p>Innovative HR Management at Your Fingertips</p>
                     <div class = "button">
-                    <button id="uploadButton">Upload</button>
+                    <button id="uploadButton" onclick="openForm()">Upload</button>
                     <div class="popup" id="uploadPopup">
                         <div class="popup-content">
                             <span class="close-button" id="closeButton">&times;</span>
                             <p>Upload your CV/Resume in PDF form</p>
                             <form id="uploadForm">
-                                <input type="file" id="cvFile" name="filename">
+                                <input type="file" id="cvFile" name="filename" accept=".pdf">
+                                <button type="submit" id="submitButton">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -58,6 +59,49 @@
             </div>
         </section>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const uploadButton = document.getElementById('uploadButton');
+    const uploadPopup = document.getElementById('uploadPopup');
+    const closeButton = document.getElementById('closeButton');
+    const uploadForm = document.getElementById('uploadForm');
+
+    uploadButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        uploadPopup.style.display = 'block';
+    });
+
+    closeButton.addEventListener('click', function() {
+        uploadPopup.style.display = 'none';
+    });
+
+    uploadPopup.addEventListener('click', function(event) {
+        if (event.target === uploadPopup) {
+            uploadPopup.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!uploadPopup.contains(event.target) && event.target !== uploadButton) {
+            uploadPopup.style.display = 'none';
+        }
+    });
+
+    uploadForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const fileInput = document.getElementById('cvFile');
+        if (fileInput.files.length > 0) {
+            // Here you would typically send the file to your server or process it
+            console.log('File selected:', fileInput.files[0].name);
+            // You can add your file upload logic here
+            alert('File submitted successfully!');
+            uploadPopup.style.display = 'none';
+        } else {
+            alert('Please select a file before submitting.');
+        }
+    });
+});
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="firebase-config.js"></script>
   
