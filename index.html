@@ -99,23 +99,6 @@
                 displaySelectedFiles();
             });
 
-            function displaySelectedFiles() {
-                fileList.innerHTML = '';
-                selectedFiles.forEach((file, index) => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<span>${getFileIcon(file)} ${file.name}</span> <button class="remove-btn" data-index="${index}" style="background:white"><i class="fas fa-trash-alt" style="color: red;"></i></button>`;
-                    fileList.appendChild(li);
-                });
-
-                document.querySelectorAll('.remove-btn').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const index = this.getAttribute('data-index');
-                        selectedFiles.splice(index, 1);
-                        displaySelectedFiles();
-                    });
-                });
-            }
-
             function getFileIcon(file) {
                 const fileType = file.type;
                 if (fileType.startsWith('image/')) {
@@ -147,6 +130,7 @@
                 fileList.innerHTML = "";
                 uploadPopup.style.display = 'none';
             });
+            
     uploadForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const fileInput = document.getElementById('cvFile');
@@ -160,6 +144,41 @@
             alert('Please select a file before submitting.');
         }
     });
+
+    function displaySelectedFiles() {
+    fileList.innerHTML = '';
+    selectedFiles.forEach((file, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span>${getFileIcon(file)} ${file.name}</span>
+            <div class="file-actions">
+                <button class="view-btn" data-index="${index}" title="View file" style=" background: white; width: 30px;">
+                    <i class="fas fa-eye" style="color: blue;"></i>
+                </button>
+                <button class="remove-btn" data-index="${index}" title="Remove file" style="width: 30px; background: white;">
+                    <i class="fas fa-trash-alt" style="color: red;"></i>
+                </button>
+            </div>`;
+        fileList.appendChild(li);
+    });
+
+    document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const index = this.getAttribute('data-index');
+            selectedFiles.splice(index, 1);
+            displaySelectedFiles();
+        });
+    });
+
+    document.querySelectorAll('.view-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const index = this.getAttribute('data-index');
+            const file = selectedFiles[index];
+            const fileURL = URL.createObjectURL(file);
+            window.open(fileURL, '_blank');
+        });
+    });
+}
 });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1/firebase.js"></script>
