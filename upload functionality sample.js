@@ -4,11 +4,6 @@ document.getElementById("uploadForm").addEventListener("submit", function(e) {
     const fileInput = document.getElementById('cvFile');
     const file = fileInput.files[0];
 
-    if (!file) {
-        alert('Please select a file to upload.');
-        return;
-    }
-
     // Upload file to Firebase Storage
     const fileRef = storageRef.child('resumes/' + fileName);
     fileRef.put(file).then((snapshot) => {
