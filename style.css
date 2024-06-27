@@ -136,6 +136,9 @@ body {
     gap: 10px;
 }
 
+.upload-container h2 {
+    color:black;    
+}
 .upload-icon {
     display: flex;
     flex-direction: column;
@@ -148,6 +151,7 @@ body {
 
 .upload-icon p {
     margin: 0;
+    color: black;   
 }
 
 #fileInput {
