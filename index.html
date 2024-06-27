@@ -31,11 +31,11 @@
                                     <div class="upload-icon">
                                         <input type="file" id="fileInput" multiple>
                                         <label for="fileInput">
-                                            <span class="icon">📁</span>
+                                            <span class="icon"><img src="cloudicon.png" height="100px"></span>
                                             <p>Upload File</p>
                                         </label>
                                     </div>
-                                    <button class="upload-btn" id="uploadBtn">Upload Files</button>
+                                    <button class="upload-btn" id="uploadBtn">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,6 @@
             const uploadButton = document.getElementById('uploadButton');
             const uploadPopup = document.getElementById('uploadPopup');
             const closeButton = document.getElementById('closeButton');
-            const uploadForm = document.getElementById('uploadForm');
             const fileInput = document.getElementById('fileInput');
             const fileList = document.getElementById('fileList');
             const uploadBtn = document.getElementById('uploadBtn');
@@ -104,7 +103,7 @@
                 fileList.innerHTML = '';
                 selectedFiles.forEach((file, index) => {
                     const li = document.createElement('li');
-                    li.innerHTML = `<span>${getFileIcon(file)} ${file.name}</span> <button class="remove-btn" data-index="${index}">Remove</button>`;
+                    li.innerHTML = `<span>${getFileIcon(file)} ${file.name}</span> <button class="remove-btn" data-index="${index}"><i class="fas fa-trash-alt" style="color: red;"></i></button>`;
                     fileList.appendChild(li);
                 });
 
@@ -150,7 +149,7 @@
             });
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1/firebase.js"></script>
     <script src="firebase-config.js"></script>
 </body>
 </html>
