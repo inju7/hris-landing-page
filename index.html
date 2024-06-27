@@ -103,7 +103,7 @@
                 fileList.innerHTML = '';
                 selectedFiles.forEach((file, index) => {
                     const li = document.createElement('li');
-                    li.innerHTML = `<span>${getFileIcon(file)} ${file.name}</span> <button class="remove-btn" data-index="${index}"><i class="fas fa-trash-alt" style="color: red;"></i></button>`;
+                    li.innerHTML = `<span>${getFileIcon(file)} ${file.name}</span> <button class="remove-btn" data-index="${index}" style="background:white"><i class="fas fa-trash-alt" style="color: red;"></i></button>`;
                     fileList.appendChild(li);
                 });
 

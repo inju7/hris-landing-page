@@ -87,6 +87,7 @@ body {
     width: 100px;
 }
 
+
 .popup {
     display: none;
     position: fixed;
@@ -183,14 +184,14 @@ body {
 .remove-btn {
     background: none;
     border: none;
-    color: red;
+    color: #6C63FF;
     cursor: pointer;
 }
 
 .upload-btn {
     padding: 0.5rem 1rem;
     color: white;
-    background: red;
+    background: #6C63FF;
     border: none;
     border-radius: 12px;
     cursor: pointer;
